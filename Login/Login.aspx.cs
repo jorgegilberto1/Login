@@ -10,6 +10,10 @@ namespace Login
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Session["usuariologueado"] != null) {
+                Response.Redirect("index.aspx");
+            }
+
         }
 
         string patron = "InfoToolsSV";
@@ -30,7 +34,7 @@ namespace Login
             {
                 //Agregamos una sesion de usuario
                 Session["usuariologueado"] = tbUsuario.Text;
-                Response.Redirect("Index.aspx");
+                Response.Redirect("index.aspx");
             }
             else
             {
